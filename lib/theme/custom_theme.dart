@@ -22,6 +22,15 @@ class CustomTheme {
     );
   }
 
+    static const LinearGradient customGradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [
+      Color.fromARGB(255, 235, 94, 107),
+      Color.fromARGB(255, 237, 114, 99),
+    ],
+  );
+
   static ThemeData lightTheme = ThemeData(
     colorScheme: ColorScheme.light(
       primary: primaryColor, // principal

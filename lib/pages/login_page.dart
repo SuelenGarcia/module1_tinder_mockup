@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mockup_tinder/models/sign_in_button_model.dart';
 import 'package:mockup_tinder/theme/custom_theme.dart';
+import 'package:mockup_tinder/widgets/logo_tinder_widget.dart';
 import 'package:mockup_tinder/widgets/sign_in_list_widget.dart';
 
 class MyApp extends StatelessWidget {
@@ -23,6 +24,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final gradient = CustomTheme.customGradient;
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       floatingActionButtonLocation: FloatingActionButtonLocation.miniStartTop,
@@ -35,15 +38,7 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(gradient: LinearGradient(
-        begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Color.fromARGB(255, 235, 94, 107),
-              Color.fromARGB(255, 237, 114, 99),
-            ],
-          ),
-        ),
+        decoration: BoxDecoration(gradient: gradient),
         child: Column(
           spacing: 8,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -55,31 +50,7 @@ class LoginPage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               spacing: 8,
               children: [
-                Stack(
-                  children: [ 
-                    // Container(
-                    //   height: 60,
-                    //   width: 40,
-                    //   decoration: BoxDecoration(
-                    //     shape: BoxShape.rectangle,
-                    //     borderRadius: BorderRadius.circular(50),
-                    //     color: Colors.white,
-                    //   ),
-                    // ),
-                    // Transform.rotate(
-                    //   alignment: Alignment.topRight,
-                    //   angle: -40,
-                    //   child: Container(
-                    //     height: 40,
-                    //     width: 36,
-                    //     decoration: BoxDecoration(
-                    //       color: Color.fromARGB(255, 236, 102, 104),
-                    //       shape: BoxShape.rectangle,
-                    //       borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(100), bottomLeft: Radius.circular(100), bottomRight: Radius.elliptical(50, 10),)),
-                    //     ),
-                    //   ),
-                  ],
-                ),
+                LogoTinderWidget(),
                 Text(
                   'tinder',
                   style: GoogleFonts.poppins(
@@ -106,8 +77,14 @@ class LoginPage extends StatelessWidget {
                   icon: Icons.apple,
                   text: 'SIGN IN WITH APPLE',
                 ),
-                SignInButtonModel(icon: Icons.facebook, text: 'SIGN IN WITH FACEBOOK'),
-                SignInButtonModel(icon: Icons.chat_bubble_rounded, text: 'SIGN IN WITH PHONE NUMBER'),
+                SignInButtonModel(
+                  icon: Icons.facebook,
+                  text: 'SIGN IN WITH FACEBOOK',
+                ),
+                SignInButtonModel(
+                  icon: Icons.chat_bubble_rounded,
+                  text: 'SIGN IN WITH PHONE NUMBER',
+                ),
               ],
             ),
             Text(

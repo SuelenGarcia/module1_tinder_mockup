@@ -11,9 +11,10 @@ const SignInButtonWidget({super.key, required this.signInButtonModel});
 
     final theme = Theme.of(context);
     final mediaQuery = MediaQuery.of(context).size;
-    // final widthScreen = mediaQuery.width;
-    final heightButton = mediaQuery.height * 0.050;
-    final widthButton = mediaQuery.width * 0.730;
+    final widthScreen = mediaQuery.width;
+    final heightScreen = mediaQuery.height;
+    final heightButton = heightScreen* 0.050;
+    final widthButton = widthScreen * 0.730;
     double iconSize = MediaQuery.of(context).size.width * 0.05;
 
     return Container(
