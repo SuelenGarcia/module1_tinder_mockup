@@ -4,6 +4,7 @@ import 'package:mockup_tinder/models/sign_in_button_model.dart';
 import 'package:mockup_tinder/theme/custom_theme.dart';
 import 'package:mockup_tinder/widgets/logo_tinder_widget.dart';
 import 'package:mockup_tinder/widgets/sign_in_list_widget.dart';
+import 'package:mockup_tinder/widgets/terms_text_widget.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -25,6 +26,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final gradient = CustomTheme.customGradient;
+    final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -51,25 +53,11 @@ class LoginPage extends StatelessWidget {
               spacing: 8,
               children: [
                 LogoTinderWidget(),
-                Text(
-                  'tinder',
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 50,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: -2,
-                  ),
-                ),
+                Text('tinder', style: textTheme.displayLarge),
               ],
             ),
             SizedBox(height: 40),
-            Center(
-              child: Text(
-                'By tapping Create Account or Sign In, you agree to our\n Terms. Learn how we process your data in our Privacy\n Policy and Cookies Policy.',
-                style: GoogleFonts.lato(color: Colors.white),
-                textAlign: TextAlign.center,
-              ),
-            ),
+            TermsTextWidget(),
             SizedBox(height: 10),
             SignInListWidget(
               loginButtons: [

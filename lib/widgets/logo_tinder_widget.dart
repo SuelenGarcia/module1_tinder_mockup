@@ -8,26 +8,20 @@ class LogoTinderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final gradient = CustomTheme.customGradient;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
-    // final screenWidth = MediaQuery.of(context).size.width;
-    // final screenHeight = MediaQuery.of(context).size.height;
+  final double topLeftQuadrantHeight = screenHeight * 0.042; 
+  final double topLeftQuadrantWidth = screenWidth * 0.050;  
 
-    // double scaleFactorHeight = screenHeight / 812;  // altura do iphone X
-    // double scaleFactorWidth = screenWidth / 375;  // largura do iphone 8
+  final double topRightQuadrantHeight = screenHeight * 0.047; 
+  final double topRightQuadrantWidth = screenWidth * 0.048;  
 
-  // final double topLeftQuadrantHeight = getResponsiveHeight(context, 0.042); // 34 / 812
-  // final double topLeftQuadrantWidth = getResponsiveWidth(context, 0.064);  // 24 / 375
+  final double topHeaderCutHeight = screenHeight * 0.024;  
+  final double topHeaderCutWidth = screenWidth * 0.043; 
 
-  // final double topRightQuadrantHeight = getResponsiveHeight(context, 0.047); // 38 / 812
-  // final double topRightQuadrantWidth = getResponsiveWidth(context, 0.048);  // 18 / 375
-
-  // final double bottomSemiCircleHeight = getResponsiveHeight(context, 0.025); // 20 / 812
-  // final double bottomSemiCircleWidth = getResponsiveWidth(context, 0.112);   // 42 / 375
-
-  // final double topHeaderCutHeight = getResponsiveHeight(context, 0.024);   // 20 / 812
-  // final double topHeaderCutWidth = getResponsiveWidth(context, 0.043); // 16 / 375
-  
-
+  final double bottomSemiCircleHeight = screenHeight * 0.025;
+  final double bottomSemiCircleWidth = screenWidth * 0.099; 
 
     return Stack(
       children: [
@@ -35,8 +29,8 @@ class LogoTinderWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              height: 34,
-              width: 24,
+              height: topLeftQuadrantHeight,
+              width: topLeftQuadrantWidth,
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
                 color: theme.colorScheme.onPrimary,
@@ -50,8 +44,8 @@ class LogoTinderWidget extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 10),
               child: Container(
                 alignment: Alignment.topRight,
-                height: 38,
-                width: 18,
+                height: topRightQuadrantHeight,
+                width: topRightQuadrantWidth,
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   color: theme.colorScheme.onPrimary,
@@ -70,10 +64,9 @@ class LogoTinderWidget extends StatelessWidget {
           child: Transform.rotate(
             angle: 2.6,
             child: Container(
-              width: 20,
-              height: 16,
+              width: topHeaderCutWidth,
+              height: topHeaderCutHeight,
               decoration: BoxDecoration(
-                // color: theme.scaffoldBackgroundColor,
                 gradient: gradient,
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.elliptical(76, 95),
@@ -88,12 +81,12 @@ class LogoTinderWidget extends StatelessWidget {
         Positioned(
           top: 30,
           child: Container(
-            width: 42,
-            height: 20,
+            width: bottomSemiCircleWidth,
+            height: bottomSemiCircleHeight,
             decoration: BoxDecoration(
               color: theme.colorScheme.onPrimary,
               borderRadius: BorderRadius.vertical(
-bottom: Radius.elliptical(50, 50)
+                bottom: Radius.elliptical(50, 50),
               ),
             ),
           ),

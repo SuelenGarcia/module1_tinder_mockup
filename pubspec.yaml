@@ -59,6 +59,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/o-facebook.png
+    - assets/icons/discurso-de-balao.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
